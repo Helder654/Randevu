@@ -1,0 +1,28 @@
+Nome provisório do jogo
+	Randevu
+Resumo da história
+	dois personagens que se conhecem e foram separados e o objetivo do jogo é eles se encontrarem, e vao passando por diversas cidades, e realizando desafios para passar de cidade, até se encontrarem no fim do jogo( ainda não pensamos na historia, vamos deixar isso mais para frente, mas a ideia inicial é essa)
+
+Protagonista 1
+	é a juru, ela é uma das personagens que foi separada(depois vamos pensar na historia dela, e em características do personagem)
+
+Protagonista 2
+	é o huru, ele é o outro personagem que foi separado (depois vamos pensar na historia dela, e em características do personagem)
+
+Lista inicial de pets
+	hewie( é um cao que vai ter a função de nadar e ajudar o protagonista a passar por rios por exemplo)
+	kinus( é um gato preto, que sua habilidade é escalar, então ele vai ajudar o protagonista a passar em regiões de montanhas)
+	kikizinha (é uma hamster muito valente, que tem habilidade de vasculhar toca, em alguns momentos terá tocas que ela se você usar ela, você ganha algum item)
+	pipo(um pássaro que tem a habilidade de voar e te levar em outras cidades que você já passou por exemplo)
+	Horus(sera um espirito de um cachorro que te ilumina em cavernas escura, e te ajuda a passa, o horus acompanhara o huru)
+	shaggy (um cachorro salcichinha que tem a mesma função do horus mas acompanha a juru)
+
+Lista inicial de cidades
+	ainda não pensamos em detalhes das cidades, mas pensamos em ter em torno de 7 cidades, três cidades para cada personagem desbravar e uma cidade no meio onde eles se encontram, a ideia da cidade é algo parecido com pokemon, eles saem da cidade -> floresta -> outra cidade(realizam um objetivo para poderem ir para próxima cidade)
+
+Mecânicas principais
+pets com habilidades que desbloqueiam acoes no mapa, itens que vamos pensar em funções mais pra frente, talvez alguma espécie de loja e dinheiro, sistema de bau que um pet poderá abrir, andar, nadar com pet, voar com pet, escalar com pet,
+
+Final planejado
+
+	o final ainda não planejamos, mas a ideia é os protagonistas se encontrarem na cidade final e viverem juntos para sempre
