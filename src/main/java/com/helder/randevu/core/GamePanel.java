@@ -6,17 +6,24 @@ import com.helder.randevu.entity.Player;
 import com.helder.randevu.input.KeyHandler;
 
 public class GamePanel extends JPanel implements Runnable {
+    
+    public static final int SCREEN_WIDTH = 800;
+    public static final int SCREEN_HEIGHT = 600;
+    
     private Thread gameThread;
     private boolean running;
     private Player player;
     private KeyHandler keyHandler;
-
+   
     public GamePanel() {
         gameThread = new Thread(this);
         keyHandler = new KeyHandler();
         player = new Player(keyHandler);
-        addKeyListener(keyHandler);
+       
         setFocusable(true);
+        setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
+        setBackground(Color.BLACK);
+        addKeyListener(keyHandler);
     }
 
     @Override
@@ -46,8 +53,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void update() {
-        player.update();
-    }
+    player.update(getWidth(), getHeight());
+}
 
     @Override
     protected void paintComponent(Graphics g) {

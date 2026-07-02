@@ -24,7 +24,7 @@ public class Player {
         this.speed = 4;
     }
 
-    public void update() {
+    public void update(int screenWidth, int screenHeight) {
         if (keyHandler.upPressed) {
             y -= speed;
         }
@@ -36,6 +36,18 @@ public class Player {
         }
         if (keyHandler.rightPressed) {
             x += speed;
+        }
+        if (x < 0) {
+            x = 0;
+        }
+        if (y < 0) {
+            y = 0;
+        }
+        if (x > screenWidth - width) {
+            x = screenWidth - width;
+        }
+        if (y > screenHeight - height) {
+            y = screenHeight - height;
         }
     }
 
