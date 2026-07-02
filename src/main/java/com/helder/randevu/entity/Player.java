@@ -6,16 +6,10 @@ import java.awt.Graphics2D;
 
 import com.helder.randevu.input.KeyHandler;
 
-public class Player {
+public class Player extends Entity {
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
-    private int speed;
     private KeyHandler keyHandler;
-    private String direction;
-    
+
     public Player(KeyHandler keyHandler) {
         this.keyHandler = keyHandler;
         this.x = 100;
