@@ -1,0 +1,50 @@
+{
+  "group_id": null,
+  "states": [
+    {
+      "character": {
+        "id": "c942b9e0-fd8b-4bb1-99c5-d0fcdf790bad",
+        "name": "Juru",
+        "prompt": "Character must be a white girl, with curly dark hair, green big eyes and pink clothes. ",
+        "size": {
+          "width": 88,
+          "height": 88
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-06-30T18:19:28.773608+00:00"
+      },
+      "folder": "Juru",
+      "frames": {
+        "rotations": {
+          "south": "Juru/rotations/south.png",
+          "south-east": "Juru/rotations/south-east.png",
+          "east": "Juru/rotations/east.png",
+          "north-east": "Juru/rotations/north-east.png",
+          "north": "Juru/rotations/north.png",
+          "north-west": "Juru/rotations/north-west.png",
+          "west": "Juru/rotations/west.png",
+          "south-west": "Juru/rotations/south-west.png"
+        },
+        "animations": {
+          "Walking_forward_crouching_slightly_then_jumping_on": {
+            "south": [
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_000.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_001.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_002.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_003.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_004.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_005.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_006.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_007.png",
+              "Juru/animations/Walking_forward_crouching_slightly_then_jumping_on/south/frame_008.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.0",
+  "export_date": "2026-07-02T23:41:12.092870"
+}

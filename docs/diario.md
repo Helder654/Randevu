@@ -1,89 +1,147 @@
-# Diário de Desenvolvimento
+# Diário de Desenvolvimento - Randevu
+
+## Registro 01 - Estrutura inicial do jogo
+
+Nesta etapa inicial, o projeto Randevu começou a ganhar sua base técnica. Foi criada a estrutura principal do jogo utilizando Java, com uma janela gráfica e um painel responsável pela renderização.
+
+### O que foi feito
+
+- Criação da janela principal do jogo;
+- Criação do `GamePanel`;
+- Implementação inicial do game loop;
+- Separação das responsabilidades básicas entre janela, painel e execução principal;
+- Primeiro desenho temporário em tela para validar a renderização.
+
+### Aprendizados
+
+Nesta fase, o foco foi entender como um jogo 2D simples pode funcionar em Java usando `JFrame`, `JPanel`, `Thread` e `Runnable`.
+
+Também foi importante compreender a diferença entre:
+
+- atualizar a lógica do jogo;
+- redesenhar a tela;
+- manter o jogo rodando em loop.
 
 ---
 
-# Aula 1 - Estrutura do Projeto
+## Registro 02 - Movimento do jogador
 
-## Objetivo
+Nesta etapa, o projeto passou a ter um jogador controlável pelo teclado.
 
-Criar a estrutura inicial do projeto.
+### O que foi feito
 
-## O que foi desenvolvido
+- Criação da classe `Player`;
+- Criação da classe `KeyHandler`;
+- Implementação da movimentação do jogador;
+- Leitura das teclas direcionais;
+- Atualização da posição `x` e `y` do player;
+- Limitação do movimento dentro da tela.
 
-- Organização dos pacotes.
-- Classe Main.
-- Classe GameWindow.
-- Classe GamePanel.
+### Aprendizados
 
-## Conceitos estudados
+Foi possível entender melhor como a entrada do teclado se conecta com a lógica do jogo.
 
-- JFrame
-- JPanel
-- Organização de projetos Java
-- Responsabilidade das classes
+O `KeyHandler` ficou responsável por detectar as teclas pressionadas, enquanto o `Player` passou a usar essas informações para atualizar sua posição.
 
----
-
-# Aula 2 - Thread e Game Loop
-
-## Objetivo
-
-Criar a estrutura principal responsável pelo funcionamento contínuo do jogo.
-
-## Conceitos estudados
-
-- Interfaces
-- Runnable
-- Thread
-- Método run()
-
-## O que foi desenvolvido
-
-- Criação da Thread principal.
-- Método startGameThread().
-- Estrutura inicial do Game Loop.
-
-## Decisões de arquitetura
-
-- O GamePanel será responsável pelo Game Loop.
-- O GameWindow inicia a Thread.
-- O construtor apenas prepara os objetos.
+Também foi implementado o controle de limites da tela, impedindo que o personagem ultrapasse as bordas.
 
 ---
 
-# Aula 3 - Delta Time e Renderização
+## Registro 03 - Direção do personagem
 
-## Objetivo
+Nesta etapa, o player passou a armazenar a direção para onde está olhando.
 
-Construir um Game Loop com controle de FPS e iniciar o sistema de renderização.
+### O que foi feito
 
-## Conceitos estudados
+- Adicionada a variável `direction`;
+- A direção é atualizada conforme o movimento:
+  - `up`;
+  - `down`;
+  - `left`;
+  - `right`;
+- Exibição temporária da direção na tela para testes.
 
-- Delta Time
-- FPS
-- repaint()
-- paintComponent(Graphics)
-- Graphics
-- Sistema de coordenadas 2D
+### Aprendizados
 
-## O que foi desenvolvido
+A direção do personagem será importante para funcionalidades futuras, como:
 
-- Controle do Game Loop utilizando Delta Time.
-- Método update().
-- Integração entre update() e repaint().
-- Implementação de paintComponent().
-- Primeiro objeto desenhado na tela.
+- escolher o sprite correto;
+- interagir com NPCs;
+- abrir baús;
+- entrar em portas;
+- verificar objetos à frente do jogador.
 
-## Decisões de arquitetura
+Mesmo sendo uma mudança simples, ela prepara o jogo para sistemas mais complexos.
 
-- O Game Loop apenas controla o fluxo.
-- Toda lógica permanece em update().
-- Toda renderização permanece em paintComponent().
-- O Delta Time controla quando um novo frame deve ser processado.
+---
 
-## Próximos passos
+## Registro 04 - Classe base Entity
 
-- Criar a classe Player.
-- Implementar o teclado.
-- Movimentar o jogador.
-- Organizar o sistema de entidades.
+Nesta etapa, o projeto recebeu uma classe base para representar entidades do jogo.
+
+### O que foi feito
+
+- Criação da classe `Entity`;
+- Atributos comuns foram movidos para essa classe:
+  - `x`;
+  - `y`;
+  - `speed`;
+  - `width`;
+  - `height`;
+  - `direction`;
+- A classe `Player` passou a herdar de `Entity`.
+
+### Aprendizados
+
+A criação da classe `Entity` ajudou a organizar melhor a estrutura do projeto.
+
+A ideia é que, futuramente, outras classes também possam herdar dela, como:
+
+- NPCs;
+- pets;
+- inimigos;
+- objetos interativos.
+
+Essa mudança não alterou diretamente o comportamento visual do jogo, mas deixou o código mais preparado para crescer.
+
+---
+
+## Registro 05 - Sprite inicial do jogador
+
+Nesta etapa, o player deixou de ser representado apenas por um retângulo e passou a ser renderizado com sprite em pixel art.
+
+### O que foi feito
+
+- Criação dos sprites direcionais do jogador;
+- Adição dos arquivos de imagem na pasta de recursos;
+- Carregamento das imagens com `ImageIO`;
+- Implementação da escolha do sprite com base na direção atual;
+- Renderização do sprite no método `draw()`;
+- Mantido fallback visual com retângulo branco caso alguma imagem não carregue;
+- Ajuste do tamanho do jogador para `64x64`.
+
+### Aprendizados
+
+Foi possível entender como carregar imagens externas em um projeto Java e desenhá-las na tela usando `Graphics2D`.
+
+Também foi identificado um problema comum no Windows: arquivos com extensão duplicada, como `.png.png`, podem fazer o Java não encontrar a imagem corretamente.
+
+O carregamento de imagens atualmente usa `File`, pois o projeto ainda está em uma estrutura Java simples, sem Maven ou Gradle configurado.
+
+### Screenshot
+
+![Player sprite](screenshots/player-sprite.png)
+
+---
+
+## Próximos estudos
+
+Os próximos passos planejados são:
+
+- melhorar o carregamento de recursos;
+- criar animação de caminhada;
+- separar tamanho visual do player e área de colisão;
+- iniciar sistema de tiles/mapa;
+- implementar colisão com cenário;
+- criar NPC inicial;
+- criar sistema simples de diálogo.

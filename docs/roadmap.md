@@ -1,81 +1,24 @@
-# Roadmap do Projeto
+# Roadmap - Randevu
 
-## Fase 1 — Estrutura Inicial ✅
+## Progresso atual
 
-- [x] Criar repositório
-- [x] Configurar Git
-- [x] Organizar pacotes
-- [x] Criar documentação
+### Concluído
 
----
+- [x] Criar janela principal do jogo
+- [x] Implementar game loop
+- [x] Desenhar player temporário
+- [x] Implementar movimentação por teclado
+- [x] Limitar movimento dentro da tela
+- [x] Criar classe base `Entity`
+- [x] Adicionar direção ao player
+- [x] Carregar sprites direcionais do jogador
 
-## Fase 2 — Janela do Jogo ✅
+### Próximos passos
 
-- [x] Classe Main
-- [x] Classe GameWindow
-- [x] Classe GamePanel
-- [x] Configuração do JFrame
-
----
-
-## Fase 3 — Game Loop e Renderização ✅
-
-### Thread
-
-- [x] Criar Thread principal
-- [x] Implementar Runnable
-- [x] Criar startGameThread()
-
-### Game Loop
-
-- [x] Estrutura do método run()
-- [x] Controle utilizando Delta Time
-- [x] Método update()
-
-### Renderização
-
-- [x] repaint()
-- [x] paintComponent(Graphics)
-- [x] Primeiro desenho utilizando Graphics
-
----
-
-## Fase 4 — Entrada
-
-- [ ] Classe KeyboardHandler
-- [ ] Captura do teclado
-- [ ] Movimento do jogador
-
----
-
-## Fase 5 — Entidades
-
-- [ ] Classe Player
-- [ ] Sistema de entidades
-- [ ] Colisão
-
----
-
-## Fase 6 — Mundo
-
-- [ ] Sistema de Tiles
-- [ ] Carregamento de mapas
-- [ ] Câmera
-
----
-
-## Fase 7 — Interface
-
-- [ ] HUD
-- [ ] Inventário
-- [ ] Caixa de diálogo
-- [ ] Menus
-
----
-
-## Fase 8 — Polimento
-
-- [ ] Sons
-- [ ] Música
-- [ ] Sistema de Save
-- [ ] Otimizações
+- [ ] Melhorar carregamento de recursos
+- [ ] Criar animação de caminhada
+- [ ] Separar tamanho visual do player e área de colisão
+- [ ] Criar sistema inicial de tiles/mapa
+- [ ] Implementar colisão com cenário
+- [ ] Criar NPC inicial
+- [ ] Criar sistema simples de diálogo

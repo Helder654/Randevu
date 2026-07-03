@@ -114,6 +114,23 @@ Cada etapa é desenvolvida após o estudo dos conceitos necessários, permitindo
 Além do código, o projeto mantém documentação da arquitetura, decisões técnicas e evolução do desenvolvimento.
 
 ---
+## Status atual do desenvolvimento
+
+O projeto já possui uma estrutura inicial funcional com:
+
+- Janela principal do jogo criada com Java Swing;
+- Game loop com atualização e renderização;
+- Controle de movimento do jogador pelo teclado;
+- Classe base `Entity` para organizar personagens e futuras entidades;
+- Player com posição, velocidade, direção e limites de tela;
+- Carregamento de sprites direcionais para o personagem jogável.
+
+### Primeiro sprite do jogador
+
+O player já é renderizado em tela utilizando sprite em pixel art:
+
+![Player sprite](docs/screenshots/player-sprite.png)
+--------------
 
 # Autor
 
