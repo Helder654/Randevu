@@ -13,23 +13,34 @@ public class Player extends Entity {
 
     private KeyHandler keyHandler;
 
+    private BufferedImage[] downImages = new BufferedImage[7];
+    private BufferedImage[] upImages = new BufferedImage[7];
+    private BufferedImage[] leftImages = new BufferedImage[7];
+    private BufferedImage[] rightImages = new BufferedImage[7];
+
+    private int spriteCounter = 0;
+    private int spriteNum = 0;
+
     public Player(KeyHandler keyHandler) {
         this.keyHandler = keyHandler;
+
         this.x = 100;
         this.y = 100;
         this.width = 64;
         this.height = 64;
-        this.speed = 4;
+        this.speed = 2;
         this.direction = "down";
 
         loadImages();
     }
 
     private void loadImages() {
-        downImage = loadImage("src/main/resources/sprites/player/player_down.png");
-        upImage = loadImage("src/main/resources/sprites/player/player_up.png");
-        leftImage = loadImage("src/main/resources/sprites/player/player_left.png");
-        rightImage = loadImage("src/main/resources/sprites/player/player_right.png");
+        for (int i = 0; i < 7; i++) {
+            downImages[i] = loadImage("src/main/resources/sprites/player/South/south" + (i + 1) + ".png");
+            upImages[i] = loadImage("src/main/resources/sprites/player/North/north" + (i + 1) + ".png");
+            leftImages[i] = loadImage("src/main/resources/sprites/player/West/west" + (i + 1) + ".png");
+            rightImages[i] = loadImage("src/main/resources/sprites/player/East/east" + (i + 1) + ".png");
+        }
     }
 
     private BufferedImage loadImage(String path) {
@@ -43,34 +54,63 @@ public class Player extends Entity {
     }
 
     public void update(int screenWidth, int screenHeight) {
+        boolean moving = false;
+
         if (keyHandler.upPressed) {
             direction = "up";
             y -= speed;
+            moving = true;
         }
+
         if (keyHandler.downPressed) {
             direction = "down";
             y += speed;
+            moving = true;
         }
+
         if (keyHandler.leftPressed) {
             direction = "left";
             x -= speed;
+            moving = true;
         }
+
         if (keyHandler.rightPressed) {
             direction = "right";
             x += speed;
+            moving = true;
         }
 
         if (x < 0) {
             x = 0;
         }
+
         if (y < 0) {
             y = 0;
         }
+
         if (x > screenWidth - width) {
             x = screenWidth - width;
         }
+
         if (y > screenHeight - height) {
             y = screenHeight - height;
+        }
+
+        if (moving) {
+            spriteCounter++;
+
+            if (spriteCounter > 8) {
+                spriteNum++;
+
+                if (spriteNum > 6) {
+                    spriteNum = 0;
+                }
+
+                spriteCounter = 0;
+            }
+        } else {
+            spriteNum = 0;
+            spriteCounter = 0;
         }
     }
 
@@ -79,16 +119,19 @@ public class Player extends Entity {
 
         switch (direction) {
             case "up":
-                imageToDraw = upImage;
+                imageToDraw = upImages[spriteNum];
                 break;
+
             case "down":
-                imageToDraw = downImage;
+                imageToDraw = downImages[spriteNum];
                 break;
+
             case "left":
-                imageToDraw = leftImage;
+                imageToDraw = leftImages[spriteNum];
                 break;
+
             case "right":
-                imageToDraw = rightImage;
+                imageToDraw = rightImages[spriteNum];
                 break;
         }
 
