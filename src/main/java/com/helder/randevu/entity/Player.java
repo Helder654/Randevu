@@ -1,5 +1,6 @@
 package com.helder.randevu.entity;
 
+import com.helder.randevu.collision.CollisionChecker;
 import com.helder.randevu.input.KeyHandler;
 
 import javax.imageio.ImageIO;
@@ -8,6 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class Player extends Entity {
 
@@ -29,6 +31,10 @@ public class Player extends Entity {
         this.width = 64;
         this.height = 64;
         this.speed = 2;
+        this.collisionOffsetX = 16;
+        this.collisionOffsetY = 40;
+        this.collisionWidth = 32;
+        this.collisionHeight = 20;
         this.direction = "down";
 
         loadImages();
@@ -53,47 +59,40 @@ public class Player extends Entity {
         }
     }
 
-    public void update(int screenWidth, int screenHeight) {
+    public void update(int worldWidth, int worldHeight, CollisionChecker collisionChecker,
+                       List<? extends Entity> obstacles) {
         boolean moving = false;
 
         if (keyHandler.upPressed) {
             direction = "up";
-            y -= speed;
+            if (collisionChecker.canMove(this, x, y - speed, worldWidth, worldHeight, obstacles)) {
+                y -= speed;
+            }
             moving = true;
         }
 
         if (keyHandler.downPressed) {
             direction = "down";
-            y += speed;
+            if (collisionChecker.canMove(this, x, y + speed, worldWidth, worldHeight, obstacles)) {
+                y += speed;
+            }
             moving = true;
         }
 
         if (keyHandler.leftPressed) {
             direction = "left";
-            x -= speed;
+            if (collisionChecker.canMove(this, x - speed, y, worldWidth, worldHeight, obstacles)) {
+                x -= speed;
+            }
             moving = true;
         }
 
         if (keyHandler.rightPressed) {
             direction = "right";
-            x += speed;
+            if (collisionChecker.canMove(this, x + speed, y, worldWidth, worldHeight, obstacles)) {
+                x += speed;
+            }
             moving = true;
-        }
-
-        if (x < 0) {
-            x = 0;
-        }
-
-        if (y < 0) {
-            y = 0;
-        }
-
-        if (x > screenWidth - width) {
-            x = screenWidth - width;
-        }
-
-        if (y > screenHeight - height) {
-            y = screenHeight - height;
         }
 
         if (moving) {
@@ -142,5 +141,9 @@ public class Player extends Entity {
             g2.fillRect(x, y, width, height);
             g2.drawString(direction, x, y - 5);
         }
+    }
+
+    public String getDirection() {
+        return direction;
     }
 }

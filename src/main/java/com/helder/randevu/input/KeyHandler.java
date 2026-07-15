@@ -9,6 +9,22 @@ public class KeyHandler implements KeyListener {
     public boolean downPressed;
     public boolean leftPressed;
     public boolean rightPressed;
+    private boolean inventoryKeyPressed;
+    private boolean inventoryToggleRequested;
+    private boolean interactionKeyPressed;
+    private boolean interactionRequested;
+
+    public boolean consumeInventoryToggle() {
+        boolean toggleRequested = inventoryToggleRequested;
+        inventoryToggleRequested = false;
+        return toggleRequested;
+    }
+
+    public boolean consumeInteractionRequest() {
+        boolean requested = interactionRequested;
+        interactionRequested = false;
+        return requested;
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -31,6 +47,14 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
+        if (code == KeyEvent.VK_I && !inventoryKeyPressed) {
+            inventoryKeyPressed = true;
+            inventoryToggleRequested = true;
+        }
+        if (code == KeyEvent.VK_E && !interactionKeyPressed) {
+            interactionKeyPressed = true;
+            interactionRequested = true;
+        }
     }
 
     @Override
@@ -48,6 +72,12 @@ public class KeyHandler implements KeyListener {
         }
         if (code == KeyEvent.VK_D) {
             rightPressed = false;
+        }
+        if (code == KeyEvent.VK_I) {
+            inventoryKeyPressed = false;
+        }
+        if (code == KeyEvent.VK_E) {
+            interactionKeyPressed = false;
         }
 
     }
